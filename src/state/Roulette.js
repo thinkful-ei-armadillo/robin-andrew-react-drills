@@ -1,43 +1,32 @@
 import React,{ Component } from 'react';
 
 export default class Roulette extends Component{
-   static defaultProps= {
-        bulletInChamber: 8
-    }
+    // constructor(prop){
+    //     super(prop);
+    //     bulletInChamber= 8
+    // }
 
     state = {
         chamber: null,  
         spinningTheChamber: false
     }
 
-componentWillUnmount(){
-    clearTimeout(this.timeout);
-}
+handleOutput= ()=>{
 
+}
 handleClick = () => {
   this.setState({
-    spinningTheChamber: true});
-
-  this.timeout= setTimeout(() =>{
-    this.setState({ 
-        chamber: Math.ceil(Math.random() * 8), 
-        spinningTheChamber: false })}, 500)
-}
-
-renderResults(){
-if(this.state.spinningTheChamber){
-    return "spinning the chamber and pulling the trigger!";
-} else if(this.state.chamber === this.props.bulletInChamber){
-    return 'BANG!!!!'
-} else {
-    return 'You\'re safe'
-}
+    spinningTheChamber: !this.state.spinningTheChamber});
+  let timeout = setTimeout(() => {
+    const mathstuff = Math.ceil(Math.random() * 8);
+    this.setState({ chamber: 1})}, 2000)
 }
 
 render() {
+    const bulletInChamber = 8;
     return (
     <div>
-        <p>{this.renderResults()}</p>
+        <p>{this.state.chamber}</p>
         <button onClick={this.handleClick}>Pull The Trigger</button>
     </div>
 )
