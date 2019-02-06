@@ -7,6 +7,6 @@ import Accordion from './state/Accordion';
 import sections from './state/STORE';
 
 
-ReactDOM.render(<Accordion sections = {sections}/>, document.getElementById('root'));
+ReactDOM.render(<Accordion sections={sections}/>, document.getElementById('root'));
 
 

@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 
 export default class Accordion extends Component {
-  static defaultProp = {
-    sections: [
-      {
-        title: "",
-        content: ""
-      }
-    ]
+  static defaultProps = {
+    sections: []
   };
   state = {
     currentClick: null
